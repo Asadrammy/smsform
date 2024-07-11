@@ -1,11 +1,9 @@
 <?php
 
-$student_id=$_POST['student_id'];
-$subject_id=$_POST['subject_id'];
-$grade=$_POST['grade'];
-$date_recorded=$_POST['date_recorded'];
-$grade_id=$_POST['grade_id'];
-
+$user_id=$_POST['user_id'];
+$message=$_POST['message'];
+$date_sent=$_POST['date_sent'];
+$notification_id=$_POST['notification_id'];
 $server ="localhost";
 $username="root";
 $password="";
@@ -16,7 +14,7 @@ if($con){
 echo "connected to db";}
 else{
    echo"not connected to db";}
-   $slc="update grades set student_id='$student_id',subject_id='$subject_id',grade='$grade',date_recorded='$date_recorded' where grade_id='$grade_id'";
+   $slc="update notifications set user_id='$user_id',message='$message',date_sent='$date_sent' where notification_id='$notification_id'";
    $result=mysqli_query($con,$slc);
    if($result){
       echo "<script>
@@ -25,5 +23,5 @@ else{
       header('location:table.php');
   }
       else{
-         echo"not delete to db";}
+         echo"not deleted to db";}
          ?>

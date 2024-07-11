@@ -5,13 +5,13 @@ $server ="localhost";
 $username="root";
 $password="";
 $db="sms";
-$grade_id=$_GET['grade_id'];
+$notification_id=$_GET['notification_id'];
 $con= mysqli_connect($server, $username, $password,$db);
 if($con){
 echo "connected to db";}
 else{
    echo"not connected to db";}
-   $slc="delete from grades  where grade_id='$grade_id'";
+   $slc="delete from notifications  where notification_id='$notification_id'";
    $result=mysqli_query($con,$slc);
    if($result){
     echo "<script>
