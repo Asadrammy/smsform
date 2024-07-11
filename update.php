@@ -1,10 +1,10 @@
 <?php
 
 $student_id=$_POST['student_id'];
-$amount=$_POST['amount'];
-$due_date=$_POST['due_date'];
-$status=$_POST['status'];
-$fee_id=$_POST['fee_id'];
+$subject_id=$_POST['subject_id'];
+$grade=$_POST['grade'];
+$date_recorded=$_POST['date_recorded'];
+$grade_id=$_POST['grade_id'];
 
 $server ="localhost";
 $username="root";
@@ -16,7 +16,7 @@ if($con){
 echo "connected to db";}
 else{
    echo"not connected to db";}
-   $slc="update fees set student_id='$student_id',amount='$amount',due_date='$due_date',status='$status' where fee_id='$fee_id'";
+   $slc="update grades set student_id='$student_id',subject_id='$subject_id',grade='$grade',date_recorded='$date_recorded' where grade_id='$grade_id'";
    $result=mysqli_query($con,$slc);
    if($result){
       echo "<script>
@@ -25,5 +25,5 @@ else{
       header('location:table.php');
   }
       else{
-         echo"not deleted to db";}
+         echo"not delete to db";}
          ?>

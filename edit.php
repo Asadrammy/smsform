@@ -6,46 +6,39 @@ $server ="localhost";
 $username="root";
 $password="";
 $db="sms";
-$fee_id=$_GET['fee_id'];
+$grade_id=$_GET['grade_id'];
 $con= mysqli_connect($server, $username, $password,$db);
 /*if($con){
 echo "connected to db";}
 else{
    echo"not connected to db";}*/
-   $slc=" select * from fees where fee_id='$fee_id'";
+   $slc=" select * from grades where grade_id='$grade_id'";
    $result=mysqli_query($con,$slc);
    while($row=mysqli_fetch_assoc($result)){
-    $fee_id=$row['fee_id'];
+    $grade_id=$row['grade_id'];
 
     $student_id=$row['student_id'];
-    $amount=$row['amount'];
-    $due_date=$row['due_date'];
-    $status=$row['status'];
+    $subject_id=$row['subject_id'];
+    $grade=$row['grade'];
+    $date_recorded=$row['date_recorded'];
   
    }
    ?>
 
-<form action="update.php" method="POST">
-    <h2>Student Fees Form</h2>
-    <input type="hidden"  name="fee_id"  value="<?php echo $fee_id;?>"><br><br>
+<form action="update.php" method="POST" id="gradesForm">
+<input type="hidden" id="student_id" name="grade_id" value="<?php echo $grade_id;?>"><br><br>
     <label for="student_id">Student ID:</label>
-    <input type="text" id="id" name="student_id"  value="<?php echo $student_id;?>"><br><br>
+    <input type="text" id="student_id" name="student_id" value="<?php echo $student_id;?>"><br><br>
 
-    <label for="amount">Amount :</label>
-    <input type="number" id="amount" name="amount" value="<?php echo $amount;?>"><br><br>
+    <label for="subject_id">Subject ID:</label>
+    <input type="text" id="subject_id" name="subject_id" value="<?php echo $subject_id;?>"><br><br>
 
-    <label for="due_date">Due Date:</label>
-    <input type="date" id="due_date" name="due_date"  value="<?php echo $due_date;?>"><br><br>
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" name="grade" value="<?php echo $grade;?>"><br><br>
+<br><br>
+    <label for="date_recorded">Date Recorded:</label>
+    <input type="date" id="date_recorded" name="date_recorded" value="<?php echo $date_recorded;?>"><br><br>
 
-    <label>Status:</label>
-    
-        <input type="radio" id="status_pending" name="status" value="pending" checked>
-        <label for="status_pending">Pending</label>
-    
-    
-        <input type="radio" id="status_paid" name="status" value="paid">
-        <label for="status_paid">Paid</label>
-    
-
+<br><br>
     <input type="submit" value="Submit">
 </form>

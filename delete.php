@@ -5,13 +5,13 @@ $server ="localhost";
 $username="root";
 $password="";
 $db="sms";
-$exam_id=$_GET['exam_id'];
+$grade_id=$_GET['grade_id'];
 $con= mysqli_connect($server, $username, $password,$db);
 if($con){
 echo "connected to db";}
 else{
    echo"not connected to db";}
-   $slc="delete from exams where exam_id='$exam_id'";
+   $slc="delete from grades  where grade_id='$grade_id'";
    $result=mysqli_query($con,$slc);
    if($result){
     echo "<script>
