@@ -5,13 +5,13 @@ $server ="localhost";
 $username="root";
 $password="";
 $db="sms";
-$attendance_id=$_GET['attendance_id'];
+$enrollment_id=$_GET['enrollment_id'];
 $con= mysqli_connect($server, $username, $password,$db);
 if($con){
 echo "connected to db";}
 else{
    echo"not connected to db";}
-   $slc="delete from attendance  where attendance_id='$attendance_id'";
+   $slc="delete from enrollments where enrollment_id='$enrollment_id'";
    $result=mysqli_query($con,$slc);
    if($result){
     echo "<script>
